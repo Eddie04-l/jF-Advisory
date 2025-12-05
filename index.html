@@ -1,0 +1,142 @@
+<style>
+  .jf-footer {
+    background: #111;
+    padding: 50px 20px;
+    color: #eee;
+    margin-top: 40px;
+    font-family: Arial, sans-serif;
+  }
+
+  .footer-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+  }
+
+  .footer-logo {
+    color: #fff;
+    margin-bottom: 10px;
+  }
+
+  .footer-title {
+    margin-bottom: 15px;
+    color: #fff;
+    font-size: 18px;
+  }
+
+  .footer-text {
+    font-size: 14px;
+    line-height: 1.6;
+    opacity: 0.8;
+  }
+
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-links li {
+    margin: 8px 0;
+  }
+
+  .footer-links a {
+    color: #ccc;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+
+  .footer-links a:hover {
+    color: #fff;
+  }
+
+  .footer-socials a {
+    display: block;
+    color: #ccc;
+    margin: 5px 0;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+  .footer-socials a:hover {
+    color: #fff;
+  }
+
+  .footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    opacity: 0.6;
+    font-size: 14px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .footer-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .footer-container {
+      grid-template-columns: 1fr;
+      text-align: left;
+    }
+  }
+</style>
+
+<footer class="jf-footer">
+  <div class="footer-container">
+    <!-- Logo & Description -->
+    <div class="footer-section">
+      <h2 class="footer-logo">JF Advisory Group Stitches Africa</h2>
+      <p class="footer-text">
+        A trusted advisory and stitching solutions company delivering excellence
+        across Africa — innovation, craftsmanship, and premium consulting.
+      </p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-section">
+      <h3 class="footer-title">Quick Links</h3>
+      <ul class="footer-links">
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Our Services</a></li>
+        <li><a href="#" id="newsMediaLink">News & Media</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div class="footer-section">
+      <h3 class="footer-title">Contact Us</h3>
+      <p class="footer-text">Email: info@jfadvisorygroup.africa</p>
+      <p class="footer-text">Phone: +234 800 000 0000</p>
+      <p class="footer-text">Address: Lagos, Nigeria</p>
+    </div>
+
+    <!-- Socials -->
+    <div class="footer-section">
+      <h3 class="footer-title">Follow Us</h3>
+      <div class="footer-socials">
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>
+      © <span id="year"></span> JF Advisory Group Stitches Africa. All Rights
+      Reserved.
+    </p>
+  </div>
+</footer>
+<script>
+  // Dynamic Year
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Redirect News & Media
+  document.getElementById("newsMediaLink").addEventListener("click", () => {
+    window.location.href = "news-media.html";
+  });
+</script>
