@@ -28,42 +28,44 @@
   <!-- Articles will be inserted here by JS -->
 </section>
 
-    <script>
-      const container = document.getElementById("mediaContainer");
+<script>
+  const container = document.getElementById("media-grid"); // fixed
 
-      async function loadNews() {
-        container.innerHTML = "<p>Loading...</p>";
+  async function loadNews() {
+    container.innerHTML = "<p>Loading...</p>";
 
-        try {
-          const response = await fetch("articles.json");
-          const data = await response.json();
+    try {
+      const response = await fetch("articles.json");
+      const data = await response.json();
 
-          if (!data || data.length === 0) {
-            container.innerHTML = "<p>No articles found.</p>";
-            return;
-          }
-
-          container.innerHTML = ""; // clear loading
-
-          data.forEach((item) => {
-            const card = `
-              <div class="media-card" onclick="window.open('${item.link}', '_blank')">
-                <img src="${item.image}" alt="">
-                <div class="media-card-content">
-                  <h3 class="media-title">${item.title}</h3>
-                  <p class="media-source">Source: ${item.source}</p>
-                </div>
-              </div>
-            `;
-            container.innerHTML += card;
-          });
-        } catch (err) {
-          console.error("Error loading articles:", err);
-          container.innerHTML = "<p>Failed to load articles.</p>";
-        }
+      if (!data || data.length === 0) {
+        container.innerHTML = "<p>No articles found.</p>";
+        return;
       }
 
-      loadNews();
-    </script>
+      container.innerHTML = ""; // clear loading
+
+      data.forEach((item) => {
+        const card = `
+          <div class="media-card" onclick="window.open('${item.link}', '_blank')">
+            <img src="${item.image}" alt="">
+            <div class="media-card-content">
+              <h3 class="media-title">${item.title}</h3>
+              <p class="media-source">Source: ${item.source}</p>
+              <p class="date">${item.date}</p>
+            </div>
+          </div>
+        `;
+        container.innerHTML += card;
+      });
+    } catch (err) {
+      console.error("Error loading articles:", err);
+      container.innerHTML = "<p>Failed to load articles.</p>";
+    }
+  }
+
+  loadNews();
+</script>
+
 </body>
 </html>
