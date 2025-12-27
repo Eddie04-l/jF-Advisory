@@ -1,34 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>News & Media - JF Advisory Group Stitches Africa</title>
-  <style>
-    body { margin: 0; background: #f5f5f5; font-family: Arial, sans-serif; }
-    .media-header { background:#111; color:white; padding:50px 20px; text-align:center; }
-    .media-grid { padding:40px 20px; display:grid; gap:25px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); max-width:1400px; margin:0 auto; }
-    .media-card { background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 4px 15px rgba(0,0,0,0.1); transition:0.3s; cursor:pointer; }
-    .media-card:hover { transform:translateY(-8px); box-shadow:0 12px 25px rgba(0,0,0,0.15); }
-    .media-card img { width:100%; height:200px; object-fit:cover; }
-    .media-card-content { padding:18px; }
-    .media-title { font-size:18px; font-weight:bold; margin:0 0 8px 0; line-height:1.3; }
-    .media-source { font-size:14px; color:#555; }
-    .date { font-size:13px; color:#888; margin-top:5px; }
-  </style>
-</head>
-<body>
-
-<header class="media-header">
-  <h1>News & Media</h1>
-  <p>Latest coverage about JF Advisory Group & Stitches Africa $50M launch</p>
-</header>
-
-<section class="media-grid">
-
 <?php
-// Add new articles here — takes 10 seconds each
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
+header('Content-Type: application/json');
+
 $articles = [
+
   [
     "title" => "Stitches Africa launches with $50m financing to globalise African fashion",
     "source" => "BusinessDay NG",
@@ -36,6 +13,7 @@ $articles = [
     "link" => "https://businessday.ng/life/article/stitches-africa-launches-with-50m-financing-to-globalise-african-fashion/",
     "image" => "https://cdn.businessday.ng/wp-content/uploads/2025/11/Untitled-design-2025-11-09T040143.987-1.png"
   ],
+
   [
     "title" => "Stitches Secures $50M Financing to Support Global Expansion",
     "source" => "THISDAYLIVE",
@@ -43,20 +21,23 @@ $articles = [
     "link" => "https://www.thisdaylive.com/2025/11/10/stitches-secures-50m-financing-to-support-global-expansion/",
     "image" => "https://global.ariseplay.com/amg/www.thisdaylive.com/uploads/Stitches-Africa-860x483-1.jpg"
   ],
-//   [
-//     "title" => "Firm secures $50m to globalise African fashion",
-//     "source" => "The Sun Nigeria",
-//     "date" => "10 Nov 2025",
-//     "link" => "https://thesun.ng/firm-secures-50m-to-globalise-african-fashion/",
-//     "image" => "https://thesun.ng/wp-content/uploads/2025/11/stitches-sun.jpg"
-//   ],
+
   [
-    "title" => "Firm unveils AI-powered platform for fashion lovers",
+    "title" => "Funding Alert: Stitches Africa Secures $50M",
+    "source" => "Lucidity News (LinkedIn)",
+    "date" => "Nov 2025",
+    "link" => "https://www.linkedin.com/posts/lucidity-insights_fundingalert-fundingnews-stitchesafrica-activity-7394769975984455682-e0Bx",
+    "image" => "https://media.licdn.com/dms/image/v2/C4E0BAQH_31Ga0kVKLg/company-logo_100_100/company-logo_100_100/0/1648186238269?e=2147483647&v=beta&t=D00sZYQ2VcLM4NW4FjcONe-P-Bd-S_ZITepQUQA9d4I"
+  ],
+
+  [
+    "title" => "Firm Unveils AI-Powered Platform for Fashion Lovers, Secures $50M",
     "source" => "The Guardian Nigeria",
     "date" => "12 Nov 2025",
-    "link" => "https://guardian.ng/technology/firm-unveils-ai-powered-platform-for-fashion-lovers/",
+    "link" => "https://guardian.ng/technology/firm-unveils-ai-powered-platform-for-fashion-lovers-secures-50m-funding/",
     "image" => "https://guardian.ng/cdn-cgi/image/format=auto,width=1280,fit=cover,q=45/https://cdn.guardian.ng/wp-content/uploads/2025/11/Franklyn-Peters.jpg"
   ],
+
   [
     "title" => "Stitches Africa Unveils Fashion App, Secures $50m Funding",
     "source" => "News Agency of Nigeria (NAN)",
@@ -64,37 +45,86 @@ $articles = [
     "link" => "https://nannews.ng/2025/11/07/stitches-africa-unveils-fashion-app-secures-50m-funding/",
     "image" => "https://nannews.ng/wp-content/uploads/2025/11/Stitches-Africa-768x425.webp"
   ],
-  [
-    "title" => "FashionTech Startup Stitches Africa Secures $50million Funding",
-    "source" => "TechEconomy",
-    "date" => "8 Nov 2025",
-    "link" => "https://techeconomy.ng/fashiontech-startup-stitches-africa-secures-50million/",
-    "image" => "https://techeconomy.ng/wp-content/uploads/2025/11/Stitches-Africa-.jpg"
-  ],
+
   [
     "title" => "Firm Secures N72bn To Empower Fashion Entrepreneurs",
     "source" => "Daily Trust",
     "date" => "14 Nov 2025",
     "link" => "https://dailytrust.com/firm-secures-n72bn-to-empower-fashion-entrepreneurs/",
     "image" => "https://dailytrust.com/wp-content/uploads/2024/09/labor-rights-in-the-fashion-world.webp"
-  ]
+  ],
+
+  [
+    "title" => "FashionTech Startup Stitches Africa Secures $50M Program Financing",
+    "source" => "TechEconomy",
+    "date" => "8 Nov 2025",
+    "link" => "https://techeconomy.ng/fashiontech-startup-stitches-africa-secures-50million-program-financing/",
+    "image" => "https://techeconomy.ng/wp-content/uploads/2025/11/Stitches-Africa-.jpg"
+  ],
+
+  [
+    "title" => "E-commerce Platform Unveils Fashion App",
+    "source" => "The Nation Newspaper",
+    "date" => "Nov 2025",
+    "link" => "https://thenationonlineng.net/e-commerce-platform-unveils-fashion-app/",
+    "image" => "https://cdn.thenationonlineng.net/wp-content/uploads/2025/11/12084738/stitches-africa-647x333.png"
+  ],
+
+  [
+    "title" => "Stitches Africa Launches $50M Platform for Global Fashion",
+    "source" => "Startup Researcher",
+    "date" => "Nov 2025",
+    "link" => "https://www.startupresearcher.com/news/stitches-africa-launches-usd50-million-platform-for-global-fashion",
+    "image" => "https://www.startupresearcher.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Frcid5p3a%2Fproduction%2Fc5592ccfc9d761ffa7be5d49dd8a062437f43a86-1200x674.webp&w=1920&q=75"
+  ],
+
+  [
+    "title" => "Stitches Africa Raises $50M to Bring African Fashion to Global Audience",
+    "source" => "Arab Founders",
+    "date" => "Nov 2025",
+    "link" => "https://arabfounders.net/en/stitches-africa-raises-50m-launch/",
+    "image" => "https://arabfounders.net/wp-content/uploads/2025/11/Stitches-Africa.webp"
+  ],
+
+  [
+    "title" => "Stitches Africa Invests $50M Fashion Platform for Global Market",
+    "source" => "New Telegraph",
+    "date" => "Nov 2025",
+    "link" => "https://newtelegraphng.com/stitches-africa-invests-50m-fashion-platform-for-global-market/",
+    "image" => "https://newtelegraphng.com/wp-content/uploads/2025/11/download-17-5.jpg"
+  ],
+
+  [
+    "title" => "Firm Secures N72bn to Boost African Fashion Entrepreneurs",
+    "source" => "BizWatch Nigeria",
+    "date" => "Nov 2025",
+    "link" => "https://bizwatchnigeria.ng/firm-secures-n72bn-fashi",
+    "image" => "https://bizwatchnigeria.ng/wp-content/uploads/2025/11/fashion-technology-academy-leicester-launch-1.jpg"
+  ],
+
+  [
+    "title" => "Stitches Africa Launches AI-Powered Fashion App, Secures $50M",
+    "source" => "MSME Africa",
+    "date" => "Nov 2025",
+    "link" => "https://msmeafricaonline.com/stitches-africa-launches-ai-powered-fashion-app-secures-50m-financing-to-scale-global-reach/",
+    "image" => "https://msmeafricaonline.com/wp-content/uploads/2025/11/images-97.jpg"
+  ],
+
+  [
+    "title" => "Stitches Africa Raises $50M to Revolutionize African Fashion",
+    "source" => "Innovation Village",
+    "date" => "Nov 2025",
+    "link" => "https://innovation-village.com/stitches-africa-raises-50-million-to-revolutionize-african-fashion-with-ai-powered-global-platform/",
+    "image" => "https://i0.wp.com/innovation-village.com/wp-content/uploads/2025/11/Stitches-Africa.jpeg?ssl=1"
+  ],
+
+  [
+    "title" => "Stitches Africa launches, secures US$50m financing to revolutionize access to african fashion globally",
+    "source" => "Daily Economy",
+    "date" => "Nov 2025",
+    "link" => "https://dailyeconomy.ng/stitches-africa-launches-secures-us50m-financing-to-revolutionize-access-to-african-fashion-globally/",
+    "image" => "https://dailyeconomy.ng/wp-content/uploads/2025/11/IMG_20251107_145022-1536x873.jpg"
+  ],
 ];
 
-// Display all articles
-foreach ($articles as $article) {
-  echo '
-  <div class="media-card" onclick="window.open(\'' . $article["link"] . '\', \'_blank\')">
-    <img src="' . $article["image"] . '" alt="' . htmlspecialchars($article["title"]) . '" onerror="this.src=\'https://source.unsplash.com/600x400/?african,fashion\'">
-    <div class="media-card-content">
-      <h3 class="media-title">' . htmlspecialchars($article["title"]) . '</h3>
-      <p class="media-source">' . $article["source"] . '</p>
-      <p class="date">' . $article["date"] . '</p>
-    </div>
-  </div>';
-}
-?>
-
-</section>
-
-</body>
-</html>
+echo json_encode($articles, JSON_PRETTY_PRINT);

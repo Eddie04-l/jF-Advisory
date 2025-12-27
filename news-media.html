@@ -28,78 +28,42 @@
   <!-- Articles will be inserted here by JS -->
 </section>
 
-<script>
-  const articles = [
-    {
-      title: "Stitches Africa launches with $50m financing to globalise African fashion",
-      source: "BusinessDay NG",
-      date: "9 Nov 2025",
-      link: "https://businessday.ng/life/article/stitches-africa-launches-with-50m-financing-to-globalise-african-fashion/",
-      image: "https://cdn.businessday.ng/wp-content/uploads/2025/11/Untitled-design-2025-11-09T040143.987-1.png"
-    },
-    {
-      title: "Stitches Secures $50M Financing to Support Global Expansion",
-      source: "THISDAYLIVE",
-      date: "10 Nov 2025",
-      link: "https://www.thisdaylive.com/2025/11/10/stitches-secures-50m-financing-to-support-global-expansion/",
-      image: "https://global.ariseplay.com/amg/www.thisdaylive.com/uploads/Stitches-Africa-860x483-1.jpg"
-    },
-    // {
-    //   title: "Firm secures $50m to globalise African fashion",
-    //   source: "The Sun Nigeria",
-    //   date: "10 Nov 2025",
-    //   link: "https://thesun.ng/firm-secures-50m-to-globalise-african-fashion/",
-    //   image: "https://thesun.ng/wp-content/uploads/2025/11/stitches-sun.jpg"
-    // },
-    {
-      title: "Firm unveils AI-powered platform for fashion lovers",
-      source: "The Guardian Nigeria",
-      date: "12 Nov 2025",
-      link: "https://guardian.ng/technology/firm-unveils-ai-powered-platform-for-fashion-lovers/",
-      image: "https://guardian.ng/cdn-cgi/image/format=auto,width=1280,fit=cover,q=45/https://cdn.guardian.ng/wp-content/uploads/2025/11/Franklyn-Peters.jpg"
-    },
-    {
-      title: "Stitches Africa Unveils Fashion App, Secures $50m Funding",
-      source: "News Agency of Nigeria (NAN)",
-      date: "7 Nov 2025",
-      link: "https://nannews.ng/2025/11/07/stitches-africa-unveils-fashion-app-secures-50m-funding/",
-      image: "https://nannews.ng/wp-content/uploads/2025/11/Stitches-Africa-768x425.webp"
-    },
-    {
-      title: "FashionTech Startup Stitches Africa Secures $50million Funding",
-      source: "TechEconomy",
-      date: "8 Nov 2025",
-      link: "https://techeconomy.ng/fashiontech-startup-stitches-africa-secures-50million/",
-      image: "https://techeconomy.ng/wp-content/uploads/2025/11/Stitches-Africa-.jpg"
-    },
-    {
-      title: "Firm Secures N72bn To Empower Fashion Entrepreneurs",
-      source: "Daily Trust",
-      date: "14 Nov 2025",
-      link: "https://dailytrust.com/firm-secures-n72bn-to-empower-fashion-entrepreneurs/",
-      image: "https://dailytrust.com/wp-content/uploads/2024/09/labor-rights-in-the-fashion-world.webp"
-    }
-  ];
+    <script>
+      const container = document.getElementById("mediaContainer");
 
-  const grid = document.getElementById('media-grid');
+      async function loadNews() {
+        container.innerHTML = "<p>Loading...</p>";
 
-  articles.forEach(article => {
-    const card = document.createElement('div');
-    card.className = 'media-card';
-    card.onclick = () => window.open(article.link, '_blank');
+        try {
+          const response = await fetch("articles.json");
+          const data = await response.json();
 
-    card.innerHTML = `
-      <img src="${article.image}" alt="${article.title}" onerror="this.src='https://source.unsplash.com/600x400/?african,fashion'">
-      <div class="media-card-content">
-        <h3 class="media-title">${article.title}</h3>
-        <p class="media-source">${article.source}</p>
-        <p class="date">${article.date}</p>
-      </div>
-    `;
+          if (!data || data.length === 0) {
+            container.innerHTML = "<p>No articles found.</p>";
+            return;
+          }
 
-    grid.appendChild(card);
-  });
-</script>
+          container.innerHTML = ""; // clear loading
 
+          data.forEach((item) => {
+            const card = `
+              <div class="media-card" onclick="window.open('${item.link}', '_blank')">
+                <img src="${item.image}" alt="">
+                <div class="media-card-content">
+                  <h3 class="media-title">${item.title}</h3>
+                  <p class="media-source">Source: ${item.source}</p>
+                </div>
+              </div>
+            `;
+            container.innerHTML += card;
+          });
+        } catch (err) {
+          console.error("Error loading articles:", err);
+          container.innerHTML = "<p>Failed to load articles.</p>";
+        }
+      }
+
+      loadNews();
+    </script>
 </body>
 </html>
