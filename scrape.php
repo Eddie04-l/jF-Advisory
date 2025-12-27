@@ -1,12 +1,9 @@
 <?php
-<<<<<<< HEAD
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
 header('Content-Type: application/json');
 
-=======
->>>>>>> 21b1833fa98a5f62edbb5b5946e08305e17842de
 $articles = [
 
   [
@@ -30,11 +27,7 @@ $articles = [
     "source" => "Lucidity News (LinkedIn)",
     "date" => "Nov 2025",
     "link" => "https://www.linkedin.com/posts/lucidity-insights_fundingalert-fundingnews-stitchesafrica-activity-7394769975984455682-e0Bx",
-<<<<<<< HEAD
     "image" => "https://media.licdn.com/dms/image/v2/C4E0BAQH_31Ga0kVKLg/company-logo_100_100/company-logo_100_100/0/1648186238269?e=2147483647&v=beta&t=D00sZYQ2VcLM4NW4FjcONe-P-Bd-S_ZITepQUQA9d4I"
-=======
-    "image" => "https://source.unsplash.com/600x400/?startup,africa"
->>>>>>> 21b1833fa98a5f62edbb5b5946e08305e17842de
   ],
 
   [
@@ -82,11 +75,7 @@ $articles = [
     "source" => "Startup Researcher",
     "date" => "Nov 2025",
     "link" => "https://www.startupresearcher.com/news/stitches-africa-launches-usd50-million-platform-for-global-fashion",
-<<<<<<< HEAD
     "image" => "https://www.startupresearcher.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Frcid5p3a%2Fproduction%2Fc5592ccfc9d761ffa7be5d49dd8a062437f43a86-1200x674.webp&w=1920&q=75"
-=======
-    "image" => "https://www.startupresearcher.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Frcid5p3a%2Fproduction%2Fc5592ccfc9d761ffa7be5d49dd8a062437f43a86-1200x674.webp%3Ffm%3Dwebp%26w%3D1440%26h%3D720&w=1920&q=75"
->>>>>>> 21b1833fa98a5f62edbb5b5946e08305e17842de
   ],
 
   [
@@ -94,11 +83,7 @@ $articles = [
     "source" => "Arab Founders",
     "date" => "Nov 2025",
     "link" => "https://arabfounders.net/en/stitches-africa-raises-50m-launch/",
-<<<<<<< HEAD
     "image" => "https://arabfounders.net/wp-content/uploads/2025/11/Stitches-Africa.webp"
-=======
-    "image" => "https://arabfounders.net/wp-content/uploads/2025/11/Stitches-Africa.webpn"
->>>>>>> 21b1833fa98a5f62edbb5b5946e08305e17842de
   ],
 
   [
@@ -130,63 +115,16 @@ $articles = [
     "source" => "Innovation Village",
     "date" => "Nov 2025",
     "link" => "https://innovation-village.com/stitches-africa-raises-50-million-to-revolutionize-african-fashion-with-ai-powered-global-platform/",
-<<<<<<< HEAD
     "image" => "https://i0.wp.com/innovation-village.com/wp-content/uploads/2025/11/Stitches-Africa.jpeg?ssl=1"
   ],
 
   [
-=======
-    "image" => "https://i0.wp.com/innovation-village.com/wp-content/uploads/2025/11/Stitches-Africa.jpeg?fit=708%2C398&ssl=1"
-  ],
-
-    [
->>>>>>> 21b1833fa98a5f62edbb5b5946e08305e17842de
     "title" => "Stitches Africa launches, secures US$50m financing to revolutionize access to african fashion globally",
     "source" => "Daily Economy",
     "date" => "Nov 2025",
     "link" => "https://dailyeconomy.ng/stitches-africa-launches-secures-us50m-financing-to-revolutionize-access-to-african-fashion-globally/",
     "image" => "https://dailyeconomy.ng/wp-content/uploads/2025/11/IMG_20251107_145022-1536x873.jpg"
-<<<<<<< HEAD
   ],
 ];
 
 echo json_encode($articles, JSON_PRETTY_PRINT);
-=======
-    ],
-  
-    // [
-    //   "title" => "Stitches Africa's Funding Rounds",
-    //   "source" => "tracxn",
-    //   "date" => "Nov 2025",
-    //   "link" => "https://tracxn.com/d/companies/stitches-africa/__6BadpUJ__SEL7kTwpAoHUm68E2YaZP0MYm6oWxQT1Og/funding-and-investors",
-    //   "image" => "https://source.unsplash.com/600x400/?african,technology"
-    // ],
-
-    //   [
-    //   "title" => "Stitches Africa launches, secures US$50m financing to revolutionize access to african fashion globally",
-    //   "source" => "Daily Economy",
-    //   "date" => "Nov 2025",
-    //   "link" => "https://dailyeconomy.ng/stitches-africa-launches-secures-us50m-financing-to-revolutionize-access-to-african-fashion-globally/",
-    //   "image" => "https://dailyeconomy.ng/wp-content/uploads/2025/11/IMG_20251107_145022-1536x873.jpg"
-    // ]
-
-];
-
-foreach ($articles as $article) {
-  echo '
-  <div class="media-card" onclick="window.open(\'' . $article["link"] . '\', \'_blank\')">
-    <img src="' . $article["image"] . '" alt="' . htmlspecialchars($article["title"]) . '" onerror="this.src=\'https://source.unsplash.com/600x400/?african,fashion\'">
-    <div class="media-card-content">
-      <h3 class="media-title">' . htmlspecialchars($article["title"]) . '</h3>
-      <p class="media-source">' . $article["source"] . '</p>
-      <p class="date">' . $article["date"] . '</p>
-    </div>
-  </div>';
-}
-?>
-
-</section>
-
-</body>
-</html>
->>>>>>> 21b1833fa98a5f62edbb5b5946e08305e17842de
