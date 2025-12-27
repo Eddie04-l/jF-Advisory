@@ -83,7 +83,7 @@
         container.innerHTML = "<p>Loading...</p>";
 
         try {
-          const response = await fetch("scrape.php");
+          const response = await fetch("articles.json");
           const data = await response.json();
 
           if (!data || data.length === 0) {
